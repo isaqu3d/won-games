@@ -5,6 +5,13 @@ const buildEslintCommand = (filenames) =>
     .map((f) => path.relative(process.cwd(), f))
     .join(' --file ')}`
 
+const buildTestCommand = (filenames) =>
+  `pnpm test -- --findRelatedTests ${filenames.join(' ')}`
+
 module.exports = {
-  '*.{js,jsx,ts,tsx}': [buildEslintCommand, 'prettier --write']
+  '*.{js,jsx,ts,tsx}': [
+    buildEslintCommand,
+    buildTestCommand,
+    'prettier --write'
+  ]
 }
