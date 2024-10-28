@@ -12,7 +12,7 @@ const customJestConfig = {
   },
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.ts(x)?', '!src/app/**'],
+  collectCoverageFrom: ['src/**/*.ts(x)?', '!src/app/**', '!src/globals.css'],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }]
   }
