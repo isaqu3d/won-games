@@ -3,11 +3,16 @@ import Main from '.'
 
 describe('<Main />', () => {
   it('should render the heading', () => {
-    const { container } = render(<Main />)
+    const { container } = render(
+      <Main
+        title="React Avançado"
+        description="TypeScript, ReactJS, NextJS e TailwindCSS"
+      />
+    )
 
     expect(
       screen.getByRole('heading', {
-        name: /won games/i
+        name: /react avançado/i
       })
     ).toBeInTheDocument()
 
