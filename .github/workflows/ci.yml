@@ -11,11 +11,20 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 21.x
-          cache: 'pnpm'
+          node-version: 20.x
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Enable corepack and install pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+
+      - name: Cache pnpm dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: pnpm-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-cache-${{ runner.os }}-
 
       - name: Install dependencies
         run: pnpm install
