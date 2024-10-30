@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Main /> should render the heading 1`] = `
+<main
+  class="bg-[#06092b] text-white text-lg h-full font-sans p-12 flex items-center justify-center text-center flex-col"
+>
+  <h1>
+    Won games
+  </h1>
+</main>
+`;
