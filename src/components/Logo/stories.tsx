@@ -26,15 +26,3 @@ export default {
 } as Meta
 
 export const Default: StoryFn<LogoProps> = (args) => <Logo {...args} />
-
-export const Large: StoryFn<LogoProps> = (args) => <Logo {...args} />
-
-Large.args = {
-  size: 'md'
-}
-
-export const Mobile: StoryFn<LogoProps> = (args) => <Logo {...args} />
-
-Mobile.args = {
-  hideOnMobile: true
-}
