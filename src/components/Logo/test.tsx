@@ -18,8 +18,8 @@ describe('<Logo />', () => {
     )
   })
 
-  it('should render a normal logo', () => {
-    render(<Logo size="md" />)
+  it('should render a normal logo when size is default', () => {
+    render(<Logo />)
 
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveClass(
       'w-28 h-8'
