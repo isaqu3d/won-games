@@ -35,23 +35,20 @@ const config: Config = {
         darkgray: '#2E2F42'
       },
 
-      spacing: {
-        xxsmall: '0.8rem',
-        xsmall: '1.6rem',
-        small: '2.4rem',
-        medium: '3.2rem',
-        large: '4.0rem',
-        xlarge: '4.8rem',
-        xxlarge: '5.6rem'
-      },
-
       zIndex: {
         base: '10',
         menu: '20',
         overlay: '30',
         modal: '40',
         alwaysOnTop: '50'
+      },
+      container: {
+        center: true, // Centraliza automaticamente o container (testar isso depois)
+        padding: '3.2rem' // Define o gutter (espaçamento interno)
       }
+      // maxWidth: {
+      //   container: '130rem' // Define o tamanho máximo do container (testar com isso tbm)
+      // }
     }
   },
   plugins: []
