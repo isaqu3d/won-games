@@ -1,26 +1,50 @@
-import React from 'react'
+import { cn } from '@/utils/cn'
+import { ButtonHTMLAttributes, ReactNode } from 'react'
+import { tv } from 'tailwind-variants'
 
-export type ButtonProps = {
-  children?: React.ReactNode
-  size?: 'small' | 'medium' | 'large'
+const buttonStyles = tv({
+  base: 'rounded-md font-medium transition-all focus:ring-2 focus:ring-primary focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed',
+
+  variants: {
+    variant: {
+      primary:
+        'bg-gradient-to-b from-red-500 to-primary text-white shadow-md hover:brightness-110 active:brightness-90'
+    },
+    size: {
+      sm: 'text-sm h-8 px-4 [&>svg]:w-4 [&>svg]:h-4',
+      md: 'text-base h-10 px-6 [&>svg]:w-5 [&>svg]:h-5',
+      lg: 'text-lg h-12 px-8 [&>svg]:w-6 [&>svg]:h-6'
+    }
+  },
+
+  defaultVariants: {
+    variant: 'primary',
+    size: 'md'
+  }
+})
+
+type ButtonPropsBase = {
+  children?: ReactNode
+  variant?: 'primary'
+  size?: 'sm' | 'md' | 'lg'
+  className?: string
 }
 
-const sizeClasses = {
-  small: 'h-8 text-sm px-4',
-  medium: 'h-10 text-base px-6',
-  large: 'h-12 text-large px-8'
-}
+type ButtonElementProps = ButtonPropsBase &
+  ButtonHTMLAttributes<HTMLButtonElement> & {
+    as?: 'button'
+  }
 
-const Button = ({ children, size = 'medium' }: ButtonProps) => {
+type ButtonProps = ButtonElementProps
+
+const Button = ({ children, variant, size, className }: ButtonProps) => {
   return (
-    <button
-      className={`
-        bg-gradient-to-b from-red-500 to-pink-500
-        text-white border-none rounded-md
-        ${sizeClasses[size]}
-      `}
-    >
-      {children && <span>{children}</span>}
+    <button className={cn(buttonStyles({ variant, size, className }))}>
+      {children && (
+        <span className="flex items-center justify-center gap-2">
+          {children}
+        </span>
+      )}
     </button>
   )
 }
