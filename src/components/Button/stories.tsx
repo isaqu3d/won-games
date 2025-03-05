@@ -1,24 +1,47 @@
-import { Meta, Story } from '@storybook/react'
-import Button from '.'
+import { Meta, StoryObj } from '@storybook/react'
+import { ShoppingCartIcon } from 'lucide-react'
+import Button, { ButtonProps } from '.'
 
 export default {
   title: 'Button',
   component: Button,
   argTypes: {
     children: {
-      control: 'text'
+      control: 'text',
+      description: 'Text displayed inside the button'
+    },
+    icon: {
+      control: 'boolean',
+      description: 'Toggle to show an icon inside the button'
+    },
+    variant: {
+      control: { type: 'radio' },
+      options: ['primary'],
+      description: 'Defines the button style variant'
     },
     size: {
       control: { type: 'radio' },
-      options: ['small', 'medium', 'large']
+      options: ['sm', 'md', 'lg'],
+      description: 'Sets the button size'
     }
   }
-} as Meta
+} as Meta<ButtonProps>
 
-const Template: Story = (args) => <Button {...args} />
+export const Default: StoryObj<ButtonProps> = {
+  args: {
+    children: 'Buy now',
+    size: 'md'
+  }
+}
 
-export const Default = Template.bind({})
-Default.args = {
-  children: 'Buy now',
-  size: 'medium'
+export const WithIcon: StoryObj<ButtonProps> = {
+  args: {
+    children: (
+      <>
+        <ShoppingCartIcon />
+        Buy now
+      </>
+    ),
+    size: 'md'
+  }
 }

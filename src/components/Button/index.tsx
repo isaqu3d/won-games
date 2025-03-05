@@ -1,5 +1,5 @@
 import { cn } from '@/utils/cn'
-import { ButtonHTMLAttributes, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { tv } from 'tailwind-variants'
 
 const buttonStyles = tv({
@@ -23,28 +23,23 @@ const buttonStyles = tv({
   }
 })
 
-type ButtonPropsBase = {
+export type ButtonProps = {
   children?: ReactNode
   variant?: 'primary'
   size?: 'sm' | 'md' | 'lg'
   className?: string
 }
 
-type ButtonElementProps = ButtonPropsBase &
-  ButtonHTMLAttributes<HTMLButtonElement> & {
-    as?: 'button'
-  }
-
-type ButtonProps = ButtonElementProps
-
 const Button = ({ children, variant, size, className }: ButtonProps) => {
   return (
     <button className={cn(buttonStyles({ variant, size, className }))}>
-      {children && (
-        <span className="flex items-center justify-center gap-2">
-          {children}
-        </span>
-      )}
+      <div>
+        {children && (
+          <span className="flex gap-2 items-center justify-center">
+            {children}
+          </span>
+        )}
+      </div>
     </button>
   )
 }
