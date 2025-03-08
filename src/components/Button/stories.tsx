@@ -36,12 +36,8 @@ export const Default: StoryObj<ButtonProps> = {
 
 export const WithIcon: StoryObj<ButtonProps> = {
   args: {
-    children: (
-      <>
-        <ShoppingCartIcon />
-        Buy now
-      </>
-    ),
+    children: 'Buy now',
+    icon: <ShoppingCartIcon />,
     size: 'md'
   }
 }
