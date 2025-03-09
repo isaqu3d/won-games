@@ -45,7 +45,7 @@ const Button = ({
         'flex items-center justify-center gap-2'
       )}
     >
-      {icon && <span>{icon}</span>}
+      {!!icon && <span>{icon}</span>}
       {children && <span>{children}</span>}
     </button>
   )
