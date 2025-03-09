@@ -11,7 +11,7 @@ export default {
       description: 'Text displayed inside the button'
     },
     icon: {
-      control: 'boolean',
+      control: () => null,
       description: 'Toggle to show an icon inside the button'
     },
     variant: {
@@ -30,6 +30,7 @@ export default {
 export const Default: StoryObj<ButtonProps> = {
   args: {
     children: 'Buy now',
+    icon: <ShoppingCartIcon />,
     size: 'md'
   }
 }
@@ -38,6 +39,6 @@ export const WithIcon: StoryObj<ButtonProps> = {
   args: {
     children: 'Buy now',
     icon: <ShoppingCartIcon />,
-    size: 'md'
+    size: 'lg'
   }
 }
