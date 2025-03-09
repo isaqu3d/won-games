@@ -31,7 +31,13 @@ export type ButtonProps = {
   className?: string
 }
 
-const Button = ({ children, icon, variant, size, className }: ButtonProps) => {
+const Button = ({
+  children,
+  icon,
+  variant,
+  size = 'md',
+  className
+}: ButtonProps) => {
   return (
     <button
       className={cn(
