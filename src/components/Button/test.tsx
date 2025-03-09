@@ -29,4 +29,9 @@ describe('<Button />', () => {
       'bg-gradient-to-b from-red-500 to-primary text-white shadow-md hover:brightness-110 active:brightness-90'
     )
   })
+
+  it('should render with an icon', () => {
+    render(<Button icon={<span data-testid="icon" />}>Buy Now</Button>)
+    expect(screen.getByTestId('icon')).toBeInTheDocument()
+  })
 })
