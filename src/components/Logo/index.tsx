@@ -47,7 +47,7 @@ export type LogoProps = {
 
 export default function Logo({
   color = 'white',
-  size,
+  size = 'md',
   hideOnMobile,
   className,
   id = 'won-games-logo'
