@@ -1,6 +1,8 @@
 'use client'
 
+import clsx from 'clsx'
 import {
+  X as CloseIcon,
   AlignLeft as MenuIcon,
   Search as SearchIcon,
   ShoppingCart as ShoppingCartIcon
@@ -27,7 +29,14 @@ const Menu = () => {
         <ShoppingCartIcon aria-label="open shopping cart" />
       </div>
 
-      <nav aria-hidden={!isOpen} className="opacity-0"></nav>
+      <nav
+        aria-hidden={!isOpen}
+        className={clsx(isOpen ? 'opacity-100' : 'opacity-0')}
+      >
+        <button onClick={() => setIsOpen(false)}>
+          <CloseIcon aria-label="Close Menu" />
+        </button>
+      </nav>
     </menu>
   )
 }
