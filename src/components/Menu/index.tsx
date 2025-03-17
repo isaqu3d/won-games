@@ -31,9 +31,16 @@ const Menu = () => {
 
       <nav
         aria-hidden={!isOpen}
-        className={clsx(isOpen ? 'opacity-100' : 'opacity-0')}
+        className={clsx(
+          'bg-white absolute top-0 bottom-0 left-0 right-0 h-screen overflow-hidden text-black',
+          isOpen ? 'opacity-100' : 'opacity-0',
+          isOpen ? 'pointer-events-auto' : 'pointer-events-none'
+        )}
       >
-        <button onClick={() => setIsOpen(false)}>
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-0 right-0 m-4"
+        >
           <CloseIcon aria-label="Close Menu" />
         </button>
       </nav>
