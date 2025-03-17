@@ -7,6 +7,7 @@ import {
   Search as SearchIcon,
   ShoppingCart as ShoppingCartIcon
 } from 'lucide-react'
+import Link from 'next/link'
 import { useState } from 'react'
 import Logo from '../Logo'
 
@@ -43,6 +44,28 @@ const Menu = () => {
         >
           <CloseIcon aria-label="Close Menu" />
         </button>
+
+        <div className="flex items-center justify-center h-full">
+          <ul className="flex flex-col items-center gap-8">
+            <li>
+              <Link
+                href="#"
+                className="relative text-xl font-medium text-black no-underline before:absolute before:-bottom-1 before:left-1/2 before:w-0 before:h-1 before:bg-primary before:transition-all before:duration-200 hover:before:animate-hoverUnderline"
+              >
+                Home
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                href="#"
+                className="relative text-xl font-medium text-black no-underline before:absolute before:-bottom-1 before:left-1/2 before:w-0 before:h-1 before:bg-primary before:transition-all before:duration-200 hover:before:animate-hoverUnderline"
+              >
+                Explore
+              </Link>
+            </li>
+          </ul>
+        </div>
       </nav>
     </menu>
   )
