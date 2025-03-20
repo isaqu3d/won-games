@@ -9,13 +9,14 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
+import Button from '../Button'
 import Logo from '../Logo'
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <menu className="flex text-white items-center py-4 relative">
+    <menu className="flex items-center py-4 relative">
       <button onClick={() => setIsOpen(true)}>
         <MenuIcon aria-label="Open Menu" />
       </button>
@@ -25,9 +26,8 @@ const Menu = () => {
       </div>
 
       <div className="flex flex-grow justify-end gap-4">
-        <SearchIcon aria-label="search" />
-
-        <ShoppingCartIcon aria-label="open shopping cart" />
+        <SearchIcon aria-label="Search" />
+        <ShoppingCartIcon aria-label="Open Shopping Cart" />
       </div>
 
       <nav
@@ -45,7 +45,7 @@ const Menu = () => {
           <CloseIcon aria-label="Close Menu" />
         </button>
 
-        <div className="flex items-center justify-center h-full">
+        <div className="flex flex-col items-center justify-center h-full">
           <ul className="flex flex-col items-center gap-8">
             <li>
               <Link
@@ -66,8 +66,18 @@ const Menu = () => {
             </li>
           </ul>
         </div>
+        <div className="flex flex-1 flex-col items-center p-6">
+          <Button className="w-full" size="lg">
+            Log in now
+          </Button>
+          <span className="my-2 text-sm">or</span>
+          <Link href="#" className="text-primary border-b-2 border-primary">
+            Sign Up
+          </Link>
+        </div>
       </nav>
     </menu>
   )
 }
+
 export default Menu
