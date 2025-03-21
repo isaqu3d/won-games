@@ -42,13 +42,16 @@ const config: Config = {
         modal: '40',
         alwaysOnTop: '50'
       },
-      container: {
-        center: true, // Centraliza automaticamente o container (testar isso depois)
-        padding: '3.2rem' // Define o gutter (espaçamento interno)
+
+      keyframes: {
+        hoverUnderline: {
+          '0%': { width: '0', left: '50%' },
+          '100%': { width: '100%', left: '0' }
+        }
+      },
+      animation: {
+        hoverUnderline: 'hoverUnderline 0.2s forwards'
       }
-      // maxWidth: {
-      //   container: '130rem' // Define o tamanho máximo do container (testar com isso tbm)
-      // }
     }
   },
   plugins: []
